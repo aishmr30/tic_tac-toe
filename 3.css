@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #fefafa;
+    color: white;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+/* board container: fixed square so lines stay straight */
+.game {
+  width: 330px;              /* change size if you want a bigger/smaller board */
+  height: 330px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0;
+  background-repeat: no-repeat;
+  /* two layered repeating gradients: vertical lines + horizontal lines */
+  background-image:
+    /* vertical lines (drawn left->right) */
+    repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent 33.333%,
+      rgba(255,255,255,0.95) 33.333%,
+      rgba(255,255,255,0.95) calc(33.333% + 4px),
+      transparent calc(33.333% + 4px),
+      transparent 66.666%,
+      rgba(255,255,255,0.95) 66.666%,
+      rgba(255,255,255,0.95) calc(66.666% + 4px),
+      transparent calc(66.666% + 4px)
+    ),
+    /* horizontal lines (drawn top->bottom) */
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 33.333%,
+      rgba(255,255,255,0.95) 33.333%,
+      rgba(255,255,255,0.95) calc(33.333% + 4px),
+      transparent calc(33.333% + 4px),
+      transparent 66.666%,
+      rgba(255,255,255,0.95) 66.666%,
+      rgba(255,255,255,0.95) calc(66.666% + 4px),
+      transparent calc(66.666% + 4px)
+    );
+  background-size: 100% 100%;
+}
+
+/* remove box visuals from cells — keep X/O centered */
+.cell {
+  background: transparent;   /* no box color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* optional hover - only show a faint highlight (not boxes) */
+.cell:hover {
+  background: rgba(215, 208, 208, 0.03);
+}
+
+/* keep body and text styling as before */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #9ccae2;
+  color: rgb(11, 11, 11);
+}
+
+
+#status {
+    font-size: 1.2rem;
+    margin-top: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    background: #eb5468;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #e68900;
+}
